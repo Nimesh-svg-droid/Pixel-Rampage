@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Rampage...! | Official Hub</title>
+    <style>
+        /* Immersive gaming layout built around your squad background graphic */
+        body {
+            background: linear-gradient(rgba(13, 12, 16, 0.85), rgba(13, 12, 16, 0.92)), url('background.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #eeeeee;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(27, 23, 34, 0.9) 0%, rgba(13, 12, 16, 0.7) 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #d4af37; 
+            position: relative;
+            backdrop-filter: blur(5px); 
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background-color: #ff3333; 
+        }
+
+        .logo-container {
+            margin-bottom: 15px;
+        }
+
+        .logo-container img {
+            max-width: 240px; 
+            height: auto;
+            filter: drop-shadow(0px 0px 25px rgba(255, 68, 0, 0.6)); 
+        }
+
+        h1 {
+            margin: 10px 0 0 0;
+            font-size: 3.2rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        .brand-name {
+            background: linear-gradient(to right, #ff3333, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 4px 12px rgba(0,0,0,0.6);
+        }
+
+        .tagline {
+            font-family: 'Arial', sans-serif;
+            color: #d4af37;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-top: 5px;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        main {
+            font-family: 'Arial', sans-serif;
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Impact', sans-serif;
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            color: #ff3333;
+            letter-spacing: 1px;
+            margin-top: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .content-box {
+            background-color: rgba(22, 20, 28, 0.85); 
+            border: 1px solid rgba(212, 175, 55, 0.3); 
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #dddddd;
+        }
+
+        .channel-info {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(13, 12, 16, 0.6);
+            border-left: 4px solid #ff3333;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        .channel-info h3 {
+            font-family: 'Impact', sans-serif;
+            margin: 0 0 15px 0;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background-color: rgba(27, 23, 34, 0.8);
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-number {
+            font-family: 'Impact', sans-serif;
+            font-size: 1.8rem;
+            color: #ffcc00; 
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #a0a0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .milestone-container {
+            margin-top: 25px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+
+        .milestone-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .progress-bar-bg {
+            background-color: #221f2d;
+            height: 14px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #ff3333, #ffcc00);
+            height: 100%;
+            width: 6%; /* Updated automatically by JavaScript */
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ff3333;
+            transition: width 1s ease-in-out;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            background: linear-gradient(180deg, #ff4444 0%, #cc0000 100%);
+            color: #ffffff;
+            font-family: 'Impact', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 15px 45px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(204, 0, 0, 0.6);
+            transition: all 0.3s ease;
+            margin-top: 25px;
+        }
+
+        .subscribe-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 68, 68, 0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- The source is now set to your uploaded file image_W5vfwN.png -->
+        <div class="logo-container">
+            <img src="image_W5vfwN.png" alt="Rampage Squad Dragon Logo">
+        </div>
+        <h1><span class="brand-name">PIXEL RAMPAGE...!</span></h1>
+        <p class="tagline">Ultimate epic gaming experience</p>
+    </header>
+
+    <main>
+        <div class="content-box">
+            <h2>The Arena is Set</h2>
+            <p>Welcome to the official tactical base. Watch live game playthroughs, weapon reviews, and intense esports breakdowns.</p>
+
+            <div class="channel-info">
+                <h3>Live Channel Stats</h3>
+                <p style="margin: 0 0 15px 0;">Stats automatically sync directly with YouTube data counters.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number" id="sub-count">6</span>
+                        <span class="stat-label">Subscribers</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="video-count">10</span>
+                        <span class="stat-label">Videos Uploaded</span>
+                    </div>
+                    <div class="stat-card">
+                        <!-- Updated default placeholder text to display 364 views -->
+                        <span class="stat-number" id="view-count">364</span>
+                        <span class="stat-label">Total Views</span>
+                    </div>
+                </div>
+
+                <div class="milestone-container">
+                    <div class="milestone-label">
+                        <span>Road to 100 Subs</span>
+                        <span id="goal-percent">6% Completed</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="goal-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://youtube.com" target="_blank" class="subscribe-btn">Subscribe On YouTube</a>
+        </div>
+    </main>
+
+    <!-- LIVE DATABASE INTERFACE ENGINE -->
+    <script>
+        const API_KEY = 'AIzaSyCYXo7HcfF40R4F4LnM__bWQLl0XLEnpIU'; 
+        const CHANNEL_HANDLE = '@Pixel_Rampage_Official';
+        const GOAL_TARGET = 100; 
+
+        async function fetchLiveStats() {
+            try {
+                const searchUrl = `https://googleapis.com{CHANNEL_HANDLE}&key=${API_KEY}`;
+                const response = await fetch(searchUrl);
+                const data = await response.json();
+
+                if (data.items && data.items.length > 0) {
+                    const stats = data.items.statistics;
+                    const currentSubs = Number(stats.subscriberCount);
+                    
+                    document.getElementById('sub-count').innerText = currentSubs.toLocaleString();
+                    document.getElementById('video-count').innerText = Number(stats.videoCount).toLocaleString();
+                    document.getElementById('view-count').innerText = Number(stats.viewCount).toLocaleString();
+
+                    let progressPercent = Math.floor((currentSubs / GOAL_TARGET) * 100k);
+                    if(progressPercent > 100k) progressPercent = 100k; 
+
+                    document.getElementById('goal-bar').style.width = progressPercent + '%';
+                    document.getElementById('goal-percent').innerText = progressPercent + '% Completed';
+                }
